@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>V4RRXD — Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: '1rem' },
+          extend: {
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+            colors: {
+              base: '#09090B',       /* Latar paling gelap */
+              card: '#121215',       /* Latar kotak/panel */
+              cardHover: '#18181C',
+              ink: '#0E0F11',
+              purple: { DEFAULT: '#8B5CF6', light: '#A78BFA', dark: '#6D28D9' },
+            },
+            borderRadius: { xl: '16px', '2xl': '24px' },
+            boxShadow: {
+              glow: '0 0 50px rgba(139,92,246,0.25)'
+            }
+          }
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+      /* GLOBAL DARK THEME OVERRIDES */
+      body {
+        background-color: #09090B;
+        color: #E4E4E7;
+      }
+      .heading-tight { letter-spacing:-0.02em; }
+      .display-tight { letter-spacing:-0.025em; }
+      
+      .chip {
+        @apply inline-flex items-center rounded-full border border-zinc-700 px-3 py-1 text-xs font-medium text-zinc-300;
+      }
+      /* Card utama sekarang gelap semua */
+      .card {
+        @apply rounded-2xl bg-card border border-zinc-800;
+      }
+      .card-dark {
+        @apply rounded-2xl bg-ink text-white border border-purple/20 shadow-glow;
+      }
+      .section-title {
+        @apply text-xs font-semibold tracking-[0.12em] text-purple-light;
+      }
+      
+      /* Gradient Hero */
+      .grad-hero {
+        background: radial-gradient(120% 120% at 0% 0%, #1f1335 0%, #0E0F11 60%, #09090B 100%);
+      }
+      .grad-purple-text {
+        background: linear-gradient(90deg, #A78BFA, #8B5CF6, #C4B5FD);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      /* Scrollbar gelap (biar makin mantap) */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #09090B; }
+      ::-webkit-scrollbar-thumb { background: #3F3F46; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #8B5CF6; }
+    </style>
+  </head>
+  <body class="font-sans antialiased selection:bg-purple selection:text-white">
+
+    <!-- HEADER -->
+    <header class="py-6 border-b border-zinc-900 bg-base/80 backdrop-blur sticky top-0 z-50">
+      <div class="container max-w-7xl flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-purple to-purple-dark text-white font-bold shadow-glow">V</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+          <a class="hover:text-white transition" href="#about">About</a>
+          <a class="hover:text-white transition" href="#services">What I Do</a>
+          <a class="hover:text-white transition" href="#work">Projects</a>
+          <a class="hover:text-white transition" href="#skills">Skills</a>
+          <a class="hover:text-white transition" href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-gradient-to-r from-purple to-purple-dark px-5 py-2 text-sm font-medium text-white hover:opacity-90 transition">Get in touch</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="container max-w-7xl mt-6">
+      <div class="rounded-2xl grad-hero border border-purple/20 p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="text-white md:ml-10 md:mt-16" data-aos="fade-right" data-aos-duration="800">
+            <p class="text-xs font-semibold tracking-[0.2em] text-purple-light mb-3">HELLO, I'M</p>
+            <h1 class="display-tight text-5xl md:text-[8vw] font-extrabold leading-[1.05]">
+              <span class="grad-purple-text">V4RRXD</span>
+            </h1>
+            <p class="mt-4 text-zinc-400 text-lg md:text-xl max-w-md">
+              Student from Medan — I love coding websites, Android apps (MIT App Inventor), and Python scripts.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full border border-purple/40 bg-purple/10 px-3 py-1 text-purple-light">Frontend Web</span>
+              <span class="rounded-full border border-purple/40 bg-purple/10 px-3 py-1 text-purple-light">MIT App Inventor</span>
+              <span class="rounded-full border border-purple/40 bg-purple/10 px-3 py-1 text-purple-light">Python</span>
+            </div>
+          </div>
+          <div data-aos="fade-left" data-aos-duration="800" class="flex justify-center">
+            <img
+              src="https://kaifiles.vercel.app/api/file/PZCLAqzSv"
+              alt="V4RRXD"
+              class="w-full max-w-sm rounded-2xl object-cover aspect-[4/3] border border-purple/30"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container max-w-7xl mt-10 md:mt-12">
+      <div class="grid md:grid-cols-12 gap-8">
+        <div class="md:col-span-3">
+          <p class="section-title" data-aos="fade-up">ABOUT ® ME</p>
+        </div>
+        <div class="md:col-span-9" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-xl md:text-2xl leading-relaxed text-zinc-300">
+            I'm a student who loves to code. I build websites, Android apps with MIT App Inventor,
+            and Python scripts. I'm more into <span class="font-semibold text-purple-light">writing code</span>
+            than designing — turning ideas into working software is what I enjoy most.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 mt-8">
+        <div class="md:col-span-5" data-aos="fade-up">
+          <div class="card p-8 h-full flex flex-col justify-center bg-gradient-to-br from-purple/10 to-card">
+            <p class="text-sm text-zinc-400">Currently</p>
+            <p class="mt-2 text-2xl font-bold text-white">Still in school 🎓</p>
+            <p class="mt-2 text-sm text-zinc-500">Learning every day, building side projects, and improving my coding skills.</p>
+          </div>
+        </div>
+        <div class="md:col-span-7 grid grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-6 text-center border-zinc-800 hover:border-purple/50 transition">
+            <div class="text-4xl font-extrabold text-purple-light">2+</div>
+            <p class="mt-1 text-sm text-zinc-400">Years Coding</p>
+          </div>
+          <div class="card p-6 text-center border-zinc-800 hover:border-purple/50 transition">
+            <div class="text-4xl font-extrabold text-purple-light">53</div>
+            <p class="mt-1 text-sm text-zinc-400">Projects Built</p>
+          </div>
+          <div class="card p-6 text-center border-zinc-800 hover:border-purple/50 transition">
+            <div class="text-4xl font-extrabold text-purple-light">∞</div>
+            <p class="mt-1 text-sm text-zinc-400">Curiosity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO (Services) -->
+    <section id="services" class="container max-w-7xl mt-12 md:mt-16">
+      <div class="flex items-end justify-between">
+        <div>
+          <p class="section-title" data-aos="fade-up">WHAT ® I DO</p>
+          <p class="text-zinc-400 mt-1" data-aos="fade-up" data-aos-delay="50">
+            Things I build with code.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-6" data-aos="fade-up" data-aos-delay="100">
+        <article class="card-dark p-6">
+          <div class="flex items-center justify-between">
+            <span class="chip border-purple/30 text-purple-light bg-purple/10">Frontend Web</span>
+            <span class="text-sm text-zinc-500">01</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Building responsive websites with HTML, CSS, JavaScript and modern frameworks.
+          </p>
+        </article>
+
+        <article class="card p-6 hover:bg-cardHover transition">
+          <div class="flex items-center justify-between">
+            <span class="chip">Android Apps</span>
+            <span class="text-sm text-zinc-500">02</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Creating Android apps using MIT App Inventor — from simple tools to useful utilities.
+          </p>
+        </article>
+
+        <article class="card p-6 hover:bg-cardHover transition">
+          <div class="flex items-center justify-between">
+            <span class="chip">Python Scripts</span>
+            <span class="text-sm text-zinc-500">03</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Writing automation & desktop scripts for Windows — like my Sholat reminder app.
+          </p>
+        </article>
+
+        <article class="card p-6 hover:bg-cardHover transition">
+          <div class="flex items-center justify-between">
+            <span class="chip">Web Tools</span>
+            <span class="text-sm text-zinc-500">04</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Building small useful web tools — QR generators, converters, and more.
+          </p>
+        </article>
+
+        <article class="card p-6 hover:bg-cardHover transition">
+          <div class="flex items-center justify-between">
+            <span class="chip">UI Cloning</span>
+            <span class="text-sm text-zinc-500">05</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Recreating modern UI designs from scratch to sharpen my frontend skills.
+          </p>
+        </article>
+
+        <article class="card p-6 hover:bg-cardHover transition">
+          <div class="flex items-center justify-between">
+            <span class="chip">Learning</span>
+            <span class="text-sm text-zinc-500">06</span>
+          </div>
+          <p class="mt-3 text-sm text-zinc-400 leading-relaxed">
+            Always exploring new languages, tools, and frameworks — never stop learning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="work" class="container max-w-7xl mt-12 md:mt-16">
+      <p class="section-title" data-aos="fade-up">SELECTED ® PROJECTS</p>
+      <p class="text-zinc-400 mt-1 mb-4" data-aos="fade-up" data-aos-delay="50">
+        Real things I've shipped. More coming soon.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-4" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Project 1: Site2QR -->
+        <a href="https://site2qr.netlify.app/" target="_blank" rel="noopener"
+           class="card overflow-hidden group hover:border-purple/50 transition">
+          <div class="aspect-[4/3] bg-gradient-to-br from-purple via-purple-dark to-base flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 30%, #A78BFA 0, transparent 40%), radial-gradient(circle at 80% 70%, #8B5CF6 0, transparent 40%);"></div>
+            <div class="relative text-white text-center px-6">
+              <div class="text-6xl font-black tracking-tight drop-shadow-lg">QR</div>
+              <div class="mt-2 text-sm text-purple-light font-medium">site2qr.netlify.app</div>
+            </div>
+          </div>
+          <div class="p-5 border-t border-zinc-800 bg-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-zinc-500">Web Tool</p>
+                <p class="mt-1 font-semibold text-white group-hover:text-purple-light transition">Site2QR</p>
+              </div>
+              <span class="text-purple-light text-lg">↗</span>
+            </div>
+            <p class="mt-2 text-sm text-zinc-400">Convert any link into a QR code instantly.</p>
+          </div>
+        </a>
+
+        <!-- Project 2: Pengingat Sholat -->
+        <a href="https://github.com/V4RRXD/Pengingat-Sholat" target="_blank" rel="noopener"
+           class="card overflow-hidden group hover:border-purple/50 transition">
+          <div class="aspect-[4/3] bg-gradient-to-br from-zinc-900 via-purple-dark to-purple flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(circle at 70% 30%, #A78BFA 0, transparent 45%);"></div>
+            <div class="relative text-white text-center px-6">
+              <div class="text-5xl drop-shadow-lg">🕌</div>
+              <div class="mt-3 text-sm text-purple-light font-medium">github.com/V4RRXD</div>
+            </div>
+          </div>
+          <div class="p-5 border-t border-zinc-800 bg-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-zinc-500">Python • Windows</p>
+                <p class="mt-1 font-semibold text-white group-hover:text-purple-light transition">Pengingat Sholat</p>
+              </div>
+              <span class="text-purple-light text-lg">↗</span>
+            </div>
+            <p class="mt-2 text-sm text-zinc-400">Prayer reminder app for Windows 10/11, built with Python.</p>
+          </div>
+        </a>
+
+        <!-- Placeholder / more -->
+        <div class="card overflow-hidden md:col-span-2 border-zinc-800">
+          <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-purple/10 to-transparent">
+            <div>
+              <p class="text-sm text-zinc-500">More coming</p>
+              <p class="mt-1 font-semibold text-lg text-white">Still building new projects 🚧</p>
+              <p class="text-sm text-zinc-400 mt-1">Follow my GitHub to see what I ship next.</p>
+            </div>
+            <a href="https://github.com/V4RRXD" target="_blank" rel="noopener"
+               class="inline-flex items-center rounded-full bg-gradient-to-r from-purple to-purple-dark px-5 py-2 text-sm font-medium text-white hover:opacity-90 transition">
+               Visit GitHub ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="container max-w-7xl mt-12 md:mt-16">
+      <p class="section-title" data-aos="fade-up">MY ® SKILLS</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-4">
+        <div class="card p-6" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="font-semibold text-lg text-white">Coding Stack</h3>
+          <div class="mt-4 space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1 text-zinc-300"><span>HTML / CSS / JavaScript</span><span class="text-zinc-500">Web</span></div>
+              <div class="h-2 rounded-full bg-zinc-800 overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-light to-purple w-[80%]"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1 text-zinc-300"><span>MIT App Inventor</span><span class="text-zinc-500">Android</span></div>
+              <div class="h-2 rounded-full bg-zinc-800 overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-light to-purple w-[75%]"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1 text-zinc-300"><span>Python</span><span class="text-zinc-500">Scripting</span></div>
+              <div class="h-2 rounded-full bg-zinc-800 overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-light to-purple w-[70%]"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1 text-zinc-300"><span>Git & GitHub</span><span class="text-zinc-500">Versioning</span></div>
+              <div class="h-2 rounded-full bg-zinc-800 overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-light to-purple w-[65%]"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-dark p-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="font-semibold text-lg text-purple-light">Tools I Use</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">VS Code</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">MIT App Inventor</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">GitHub</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">Netlify</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">Python</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">Tailwind CSS</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">Termux</span>
+            <span class="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">Android</span>
+          </div>
+          <p class="mt-6 text-sm text-zinc-400 leading-relaxed">
+            I prefer writing clean, working code over fancy design tools.
+            My workflow: build, test, ship, learn.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container max-w-7xl mt-12 md:mt-16 mb-12">
+      <div class="card-dark p-6 md:p-10 border-purple/20">
+        <p class="section-title text-zinc-400" data-aos="fade-up">LET'S ® CONNECT</p>
+
+        <div class="mt-6 grid md:grid-cols-2 gap-6 items-center">
+          <div data-aos="fade-up" data-aos-delay="50">
+            <p class="text-2xl md:text-3xl font-semibold text-white leading-snug">
+              Got an idea? Want to collab?<br/>
+              <span class="grad-purple-text">Feel free to say hi!</span>
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="mailto:v4rrxdd@gmail.com" class="inline-flex items-center rounded-full bg-gradient-to-r from-purple to-purple-dark px-5 py-2 font-medium text-white shadow-glow hover:opacity-90 transition">
+                ✉ Email me
+              </a>
+              <a href="https://t.me/V4RRXD" target="_blank" rel="noopener" class="inline-flex items-center rounded-full border border-zinc-700 px-5 py-2 font-medium text-white hover:border-purple transition">
+                Telegram
+              </a>
+            </div>
+            <p class="mt-4 text-sm text-zinc-500">v4rrxdd@gmail.com</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://www.tiktok.com/@v4rrxd" target="_blank" rel="noopener"
+               class="aspect-square rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col items-center justify-center text-white hover:border-purple transition hover:bg-zinc-800">
+              <span class="text-2xl">🎵</span><span class="mt-1 text-xs text-zinc-400">TikTok</span>
+            </a>
+            <a href="https://t.me/V4RRXD" target="_blank" rel="noopener"
+               class="aspect-square rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col items-center justify-center text-white hover:border-purple transition hover:bg-zinc-800">
+              <span class="text-2xl">✈️</span><span class="mt-1 text-xs text-zinc-400">Telegram</span>
+            </a>
+            <a href="https://www.instagram.com/V4RRXD" target="_blank" rel="noopener"
+               class="aspect-square rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col items-center justify-center text-white hover:border-purple transition hover:bg-zinc-800">
+              <span class="text-2xl">📸</span><span class="mt-1 text-xs text-zinc-400">Instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Giant name -->
+        <div class="relative mt-10 overflow-hidden rounded-xl bg-black border border-purple/20">
+          <div class="pointer-events-none select-none text-[14vw] leading-none font-black tracking-tight grad-purple-text px-4 py-2">
+            V4RRXD
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container max-w-7xl mt-8 mb-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
+        <p>Copyright © 2026 V4RRXD. All rights reserved.</p>
+        <ul class="flex items-center gap-4">
+          <li><a class="hover:text-purple-light transition" href="https://www.tiktok.com/@v4rrxd" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a class="hover:text-purple-light transition" href="https://t.me/V4RRXD" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a class="hover:text-purple-light transition" href="https://www.instagram.com/V4RRXD" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a class="hover:text-purple-light transition" href="https://github.com/V4RRXD" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ offset: 60, once: true });
+    </script>
+  </body>
+</html>
